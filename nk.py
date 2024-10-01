@@ -1,6 +1,6 @@
-#OWNER  SIAL ZADA
-#WHATSAPP +923254817847
-# AGR KISI KO KOI HELP CHYA
+#OWNER  RABINDRA
+#WHATSAPP 9702544938
+# DHOKEY BAAJ HAU TME
 #YA KISI JAGA SA SAMJ NI ATI
 # TU WO WHATSAPP PA AA SGTA HA
 #JITNA HOWA HELP KRO GA 
@@ -114,10 +114,10 @@ logo=("""\033[1;37m
   88b  d88 db   8D 88  88  88 88   88 88  V888      
   ~Y8888P' `8888Y' YP  YP  YP YP   YP VP   V8P \033[1;32mSIAL\033[1;37m 
 ====================================================
-[•] OWNER      : ANJAN LARKA 
-[•] GITHUB     : M4STERMIND1 
+[•] OWNER      : Rabindra 
+[•] GITHUB     : Rabindrasamana 
 [•] STATUS     : FREE
-[•] VERSION    : 6.0
+[•] VERSION    : 0.1
 ====================================================
 [•] ENJOY ALL 😊
 ====================================================""")
@@ -141,7 +141,7 @@ def SIALZADA():
 			clear()
 			os.system('rm -rf Dump && git clone https://github.com/syedzada1100/Dump.git && cd Dump && python Dump.py')
 		elif shm =='5':
-			os.system('git clone https://github.com/M4STERMIND1/Marshal && cd Marshal && python Marshal.py')
+			os.system('git clone https://github.com/Rabindrasamana/Marshal && cd Marshal && python Marshal.py')
 		elif shm =='6':
 			os.system('xdg-open https://www.facebook.com/profile.php?id=100090265211294')
 			SIALZADA()
@@ -495,7 +495,7 @@ def api1(ids,names,passlist):
 			cph = random.choice(['CPH1979','CPH1983','CPH1987','CPH2005','CPH2009','CPH2015','CPH2059','CPH2061','CPH2065','CPH2069','CPH2071','CPH2073','CPH2077','CPH2091','CPH2095','CPH2099','CPH2137','CPH2139','CPH2145','CPH2161','CPH2185','CPH2201','CPH2209','CPH1801','CPH1803','CPH1805','CPH1809','CPH1827','CPH1837','CPH1851','CPH1853'])
 			network = random.choice(['Zong','Roshan','null','Marshmallow','Telekom China'])
 			xxx = "[FBAN/FB4A;FBAV/61.0.0.15.69;FBBV/20748118;FBDM/{density=3.5,width=1440,height=2560};FBLC/en_US;FBCR/3;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G928F;FBSV/5.1.1;nullFBCA/armeabi-v7a:armeabi;'+'[FBAN/FB4A;FBAV/61.0.0.15.69;FBBV/20748118;FBDM/{density=4.0,width=1440,height=2560};FBLC/en_GB;FBCR/3;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G920F;FBSV/5.1.1;nullFBCA/armeabi-v7a:armeabi;'+[FBAN/FB4A;FBAV/61.0.0.15.69;FBBV/20748118;FBDM/{density=4.0,width=1440,height=2560};FBLC/en_US;FBCR/vodafone IE;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G920F;FBSV/5.1.1;nullFBCA/armeabi-v7a:armeabi;'+' [FBAN/FB4A;FBAV/61.0.0.15.69;FBBV/20748118;FBDM/{density=4.0,width=1440,height=2560};FBLC/en_GB;FBCR/O2 - UK;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G925F;FBSV/5.1.1;nullFBCA/armeabi-v7a:armeabi;'+'[FBAN/FB4A;FBAV/61.0.0.15.69;FBBV/20748118;FBDM/{density=4.0,width=1440,height=2560};FBLC/en_GB;FBCR/O2 - UK;FBMF/samsung;FBBD/samsung;FBPN/com.facebook.katana;FBDV/SM-G920F;FBSV/5.1.1;nullFBCA/armeabi-v7a:armeabi;]"
-			ua  = "[FBAN/FB4A;FBAV/"+str(random.randint(11,77))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(11,77)) +";FBBV/"+str(random.randint(1111111,7777777))+";''[FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/en_US;FBRV/45904160;FBCR/Telenor;FBMF/Hwawie;FBBD/Opppo;FBPN/com.facebook.katana;FBDV/Samsong 17974;FBSV/5.0;FBOP/1;FBCA/x86:arfuck-v7a;]'"
+			ua  = "[FBAN/FB4A;FBAV/"+str(random.randint(11,77))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(11,77)) +";FBBV/"+str(random.randint(1111111,7777777))+";''[FBAN/FB4A;FBAV/100.1.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/en_US;FBRV/45904160;FBCR/Telenor;FBMF/Hwawie;FBBD/Opppo;FBPN/com.facebook.katana;FBDV/Samsong 17974;FBSV/5.0;FBOP/1;FBCA/x86:arfuck-v7a;]'"
 			head ={
     'authority': 'mbasic.facebook.com',
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
