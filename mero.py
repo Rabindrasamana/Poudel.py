@@ -78,11 +78,11 @@ logo4 = """
 \x1b[1;91m
 \x1b[1;92m
 \x1b[1;96m
-\x1b[1;92m         {R} {A}  {B} {I}{N}{D} {R}{A}{}
-\x1b[1;97m         {P} {O}  {U}    {D}       {E}
-\x1b[1;93m         {R} {A}  {B}    {I}       {N}
-\x1b[1;96m         {D} {R}  {A}    {R}       {P}
-\x1b[1;94m     {O}{U}   {D}{E}     {L}       {TENJO}
+\x1b[1;92m          {R}  {R}  {R}
+\x1b[1;97m          {R}         {R}
+\x1b[1;93m          {R} {R}  {R}
+\x1b[1;96m          {R}   {R}
+\x1b[1;94m.         {R}     {R}
 \x1b[1;93m
 \x1b[1;92m         tenzo Brand~
 \x1b[1;91m-----------------------------------------------
@@ -143,38 +143,37 @@ class create:
         print (logo4)
         agent = random.choice(ugen)
         headers = {
-            'authority': 'm.facebook.com',
+            'authority': 'm.example.com',
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-            'sec-ch-prefers-color-scheme': 'light',
-            'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-            'sec-ch-ua-full-version-list': '"Not:A-Brand";v="99.0.0.0", "Chromium";v="112.0.5615.137"',
+            'accept-language': 'en-US,en;q=0.9',
+            'sec-ch-prefers-color-scheme': 'dark',
+            'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113"',
+            'sec-ch-ua-full-version-list': '"Google Chrome";v="113.0.5672.64", "Chromium";v="113.0.5672.64"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
-            'sec-ch-ua-platform-version': '"11.0.0"',
+            'sec-ch-ua-platform-version': '"12.0.0"',
             'sec-fetch-dest': 'document',
             'sec-fetch-mode': 'navigate',
-            'sec-fetch-site': 'none',
+            'sec-fetch-site': 'same-origin',
             'sec-fetch-user': '?1',
-            'upgrade-insecure-requests': '1',
-            'user-agent': agent,
+            'upgrade-insecure-requests': '1'
+            'user-agent': Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-A045F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.90 Mobile Safari/537.36
             'viewport-width': '980',
         }
         headers1 = {
             'authority': 'm.facebook.com',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-            'sec-ch-prefers-color-scheme': 'light',
-            'sec-ch-ua': '"Not:A-Brand";v="99", "Chromium";v="112"',
-            'sec-ch-ua-full-version-list': '"Not:A-Brand";v="99.0.0.0", "Chromium";v="112.0.5615.137"',
-            'sec-ch-ua-mobile': '?1',
-            'sec-ch-ua-platform': '"Android"',
-            'sec-ch-ua-platform-version': '"11.0.0"',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-origin',
-            'upgrade-insecure-requests': '1',
-            'user-agent': agent,
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'accept-language': 'en-US,en;q=0.9',
+             'sec-ch-prefers-color-scheme': 'light',
+             'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not A Brand";v="99"',
+             'sec-ch-ua-mobile': '?1',
+             'sec-ch-ua-platform': '"Android"',
+             'sec-ch-ua-platform-version': '"11.0.0"',
+             'sec-fetch-dest': 'document',
+             'sec-fetch-mode': 'navigate',
+             'sec-fetch-site': 'same-origin',
+             'upgrade-insecure-requests': '1',
+             'user-agent': Mozilla/5.0 (Linux; Android 13; SAMSUNG SM-A045F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.5993.90 Mobile Safari/537.36
         }
         OO = '\033[0;97m'
         for x in range(lim):
