@@ -3,7 +3,7 @@
 #IS
 #WRITEEN
 #BY
-#BISHESH
+#
 import random
 import requests
 import os
@@ -18,6 +18,8 @@ logo=(f"""
    _| |_  | \__., | | | |  _  | || \__. | 
   |_____|  '.__.'[___||__][ \_| | '.__.'  
                            \____/                                   
+         
+           
                            
                \033[1;37mOWNER •->  \033[1;92mZAMAN
                \033[1;37mVERSION •->  \033[1;92m0.1
