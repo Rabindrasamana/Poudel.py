@@ -1,305 +1,426 @@
-import os, sys, re, requests, bs4, time, random, json, string
-from bs4 import BeautifulSoup
-from datetime import datetime
-try:
-    import requests
-except ImportError:
-    os.system('pip install requests > /dev/null')
-try:
-    import bs4
-except ImportError:
-    print ('\n [×] Modul Bs4 Not installed!...\n')
-    os.system('pip install bs4')
-def convert(cok):
-    __for = 'datr=' + cok['datr'] + ';' + ('sb=' + cok['sb']) + ';' + ('fr=' + cok['fr']) + ';' + ('c_user=' + cok['c_user']) + ';' + ('xs=' + cok['xs'])
-    return __for
-def inbox(session):
-    time.sleep(1)
-    ses = requests.Session()
-    __ = str(time.time()).replace('.', '')[:13]
-    data = ses.get(f"https://10minutemail.net/address.api.php?sessionid={session}&_={str(__)}").json()
-    if len(data["mail_list"]) !=1:
-        address = data["mail_list"][0]["subject"]
-        session = address.replace('FB-', '').replace('is your Facebook confirmation code', '')
-        return session
-ugen = []
-for xd in range(10000):
-	rr = random.randint
-	andro_version = str(random.randint(4,13))
-	fbav = str(random.randint(50,367))+'.'+str(random.randint(0,2))+'.0.'+str(random.randint(1,20))+'.'+str(random.randint(50,300))
-	fbcr = str(random.choice(['TELKOMSEL','AXIS','Indosat','XL','3SinyalKuatHemat','Tsel-PakaiMasker','XL Axiata']))
-	density = str(random.choice(['1.2','1.0','2.0','2.25','3.0','3.25']))
-	height = str(random.randint(333,4444))
-	width = str(random.randint(344,4444))
-	andro_mini = str(random.randint(3,9))+'.'+str(random.randint(0,2))+'.'+str(random.randint(0,2))
-	usertrel = str(random.randint(1111,3333))
-	fblc = random.choice(['en_GB','en_US','es_MX','th_TH','pl_PL'])
-	fbpn = random.choice(['com.facebook.katana','com.facebook.adsmanager','com.facebook.lite','com.facebook.orca','com.facebook.mlite','MessengerLite'])
-	fban = random.choice(['Katana-Android','Adsmanager-Android','Facebook.lite-Android','Orca-Android','Facebook.mlite-Android','MessengerLite'])
-	asu = ('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z')
-	build = (str(random.choice(asu))+str(random.choice(asu))+str(random.randint(1,9))+str(random.choice(asu))+'.'+str(random.randint(111111,333333))+'.'+'00'+str(random.randint(1,9)))
-	redmi = str(random.randint(1,30))
-	a = random.randrange(30,200)
-	b = random.randrange(1000,5000)
-	c = random.randrange(10,150)
-	andro = random.choice(['2','3','4','4.0.4','4.1.1','4.1.2','4.2.2','5','5.0','5.0.2','5.1.1','6','6.0','6.0.1','7','7.0','8','8.0.0','8.1','9','10','11','12','13'])
-	chr = f'{a}.0.{b}.{c}'
-	chrome = random.choice(['87.0.4280.101','106.0.5249.126','55.0.2883.91','79.0.3945.116','92.0.4515.159','96.0.4664.45','92.0.4515.131','91.0.4472.101','91.0.4472.120','90.0.4430.91','51.0.2704.91','78.0.3904.108','107.0.5304.54','112.0.5615.48','73.0.3683.90','85.0.4183.127','85.0.4183.101','83.0.4103.106','85.0.4183.101','83.0.4103.106','74.0.3729.157','80.0.3987.162','80.0.3987.149','78.0.3904.108','112.0.0.0','113.0.5672.162','108.0.0.0','88.0.4324.141','92.0.4515.159','104.0.5112.97','61.0.3163.98','114.0.0.0','72.0.3626.76','37.0.0.0','47.0.2526.100','42.0.2311.111','69.0.3497.100'])
-	fbap = random.choice(['414.0.0.30.113','414.0.0.30.113','354.0.0.8.108','354.0.0.8.108','405.0.0.16.112','414.0.0.30.113','414.0.0.30.113','413.0.0.30.104','414.0.0.30.113','408.1.0.16.113','363.0.0.30.112'])
-	fbbv = str(random.randint(111111111,999999999))
-	s = random.choice(['SamsungBrowser/96.4','SamsungBrowser/19.0','SamsungBrowser/9.2','SamsungBrowser/3.0','SamsungBrowser/3.1','SamsungBrowser/3.2','SamsungBrowser/3.3','SamsungBrowser/3.4','SamsungBrowser/3.5','SamsungBrowser/3.6','SamsungBrowser/3.7','SamsungBrowser/3.8','SamsungBrowser/3.9','SamsungBrowser/4.0','SamsungBrowser/2.0','SamsungBrowser/2.1','SamsungBrowser/2.2','SamsungBrowser/2.3','SamsungBrowser/2.4','SamsungBrowser/2.5','SamsungBrowser/2.6','SamsungBrowser/2.7','SamsungBrowser/2.8','SamsungBrowser/2.9','SamsungBrowser/1.0','SamsungBrowser/1.1','SamsungBrowser/1.2','SamsungBrowser/5.0','SamsungBrowser/5.1','SamsungBrowser/5.2','SamsungBrowser/5.3','SamsungBrowser/5.4','SamsungBrowser/5.5','SamsungBrowser/5.6','SamsungBrowser/5.7','SamsungBrowser/5.8','SamsungBrowser/5.9','SamsungBrowser/6.0','SamsungBrowser/6.1','SamsungBrowser/19.0','SamsungBrowser/20.0','SamsungBrowser/21.0','SamsungBrowser/18.0','SamsungBrowser/17.0','SamsungBrowser/16.0','SamsungBrowser/15.0'])
-	t = random.choice(['Build/JZO54K)','Build/LMY47V)','Build/LMY48B)','Build/LRX22C)','Build/LRX21V) ','Build/LRX22G)','Build/LRX21T)','Build/GINGERBREAD)','Build/JDQ39)','Build/KOT49H)','Build/KTU84P)','Build/LMY47X)','Build/LRX22G)'])
-	mini = random.choice(['2','3','4','4.0.4','4.1.1','4.1.2','4.2.2','5','5.0','5.0.2','5.1.1','6','6.0','6.0.1','7','7.0','8','8.0.0','8.1','4.3','5.0','7.0','7.0.1','8.1.0','6.0.1;','10','11','12','13'])
-	merk = random.choice(['SM-G850F','SM-G850FQ','SM-G850Y','SM-G850M','SM-G850T','SM-G850A','GT-B7810','GT-B9150','GT-B9388','GT-C3010','GT-C3262','GT-C3310R','GT-C3312','GT-C3312R','GT-C3313T','GT-C3322','SM-J415GN','SM-J415N','SAMSUNG SM-T530','SAMSUNG SM-T530','SAMSUNG SM-T805','SAMSUNG-SM-G530AZ','SAMSUNG SM-G925K','SAMSUNG SM-G925L','SAMSUNG SM-G925T','SAMSUNG-SM-T337A','SAMSUNG SM-J110F','GT-C3322i','GT-C3520','GT-C3520I','GT-C3592','GT-C3595','GT-C3782','GT-C6712','GT-E1282T','GT-E1500','GT-E2200','SM-G850S','SM-G850L','SM-G850K','SM-E025F','SM-J415F','SM-J415FN','SM-J415G','SAMSUNG-SM-G890A','SAMSUNG SM-T355Y','SAMSUNG SM-T817T','SAMSUNG SM-G925F','SAMSUNG SM-G928F','SAMSUNG SM-W2021)','GT-S7500ABABTU','GT-S7500ABADBT','GT-S7500ABTTLP','GT-S7500CWADBT','SAMSUNG SM-G996B)','GT-S7500L','GT-S7500T'])
-	a1 = str(random.randint(40,599))
-	a2 = str(random.randint(10,99))
-	a3 = str(random.randint(10,99))
-	ins = f'{a1}.0.0.{a2}.{a3}'
-	b4 = str(random.randint(10,99))
-	b5 = str(random.randint(10,99))
-	yan = f'{b4}.{b5}.0'
-	c6 = str(random.randint(1,9))
-	c7 = str(random.randint(1,9))
-	c8 = str(random.randint(1,9))
-	c9 = str(random.randint(100,999))
-	qua = f'{c6}.{c7}.{c8}.{c9}'
-	d10 = str(random.randint(10,99))
-	d11 = str(random.randint(10000,99999))
-	ed = f'{d10}.{d11}'
-	bahasa = random.choice(["en","fr","ru","tr","id","pt","es","en-GB"])
-	ua1 = f"Mozilla/5.0 (Linux; Android 12; SM-A045F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.105 Mobile Safari/537.36 [FBAN/FB4A;FBAV/338.0.0.36.118;FBBV/456739071;FBDV/SM-A045F;FBMD/Samsung;FBSN/Android;FBSV/12;FBSS/2;FBCR/;FBID/phone;FBLC/en_US;FBOP/1]"
-	ua2 = f"Mozilla/5.0 (Linux; Android 12; SM-A045F Build/SP2A.210912.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.115 Mobile Safari/537.36 [FBAN/FB4A;FBAV/345.0.0.45.119;FBBV/468739072;FBDV/SM-A045F;FBMD/Samsung;FBSN/Android;FBSV/12;FBSS/2;FBCR/;FBID/phone;FBLC/en_US;FBOP/1]"
-	ua3 = f"Opera/9.80 (Android; Opera Mini/17.0.{str(rr(40000, 45000))}/{str(rr(200, 209))}.{str(rr(300, 320))}; U; {language}) Presto/2.{str(rr(5, 22))}.{str(rr(450, 510))} Version/14.0"
-	ua4 = f"Opera/9.80 (Android; Opera Mini/12.0.{str(rr(36000, 40000))}/{str(rr(200, 210))}.{str(rr(280, 300))}; U; {language}) Presto/2.{str(rr(5, 25))}.{str(rr(430, 500))} Version/13.20"
-	ua5 = f"Opera/9.80 (Windows Phone; Opera Mini/6.5.{str(rr(36000, 40000))}/{str(rr(200, 210))}.{str(rr(280, 300))}; U; {language}) Presto/2.{str(rr(6, 25))}.{str(rr(430, 500))} Version/14.0"
-	uaku3 = random.choice([ua1,ua2,ua3,ua4,ua5])
-	ugen.append(uaku3)
-logo4 = """
-\x1b[1;91m
-\x1b[1;92m
-\x1b[1;96m
-\x1b[1;92m          {R}  {R}  {R}
-\x1b[1;97m          {R}         {R}
-\x1b[1;93m          {R} {R}  {R}
-\x1b[1;96m          {R}   {R}
-\x1b[1;94m.         {R}     {R}
-\x1b[1;93m
-\x1b[1;92m         tenzo Brand~
-\x1b[1;91m-----------------------------------------------
-\x1b[1;97m> Author : Rabindra samana
-\x1b[1;97m> Github : https://github.com/Rabindrasamana
-\x1b[1;97m> Facebok: Rabindra poudel
-\x1b[1;97m> Version: auto create facebook
-\x1b[0;97m-----------------------------------------------"""
-boy = ['Ali Khan', 'Rustam Khan', 'Faisal Khan', 'Afzal Khan', 'Haider Khan', 'Suleman Khan', 'Nadeem Khan', 'Nazeer Malik', 'Nazeer Jutt', 'Nazeer Rehmani', 'Safdar Malik', 'Intzar Khan', 'Saleem Malik', 'Abdullah Malik', 'Naseer Jutt', 'Muzammil Malik', 'Fiaz Ahmad', 'Asghar Ali', 'Shabeer Ahmad', 'Irfan Ali', 'Ahmad Gujjar']
-girl = ['Sajida Malik', 'Ayesha Khan', 'Nabeela Malik', 'Kinza Fatima', 'Arooj Khan', 'Muskan Khan', 'Ayesha Malik', 'Safina Malik', 'Nida Ali', 'Rimsha Ali']
-ok = []
-cp = []
-def menu():
-    os.system('clear')
-    print (logo4)
-    print ('            Auto create tool')
-    print (47*'-')
-    print ('[1]auto creat')
-    print ('[2]join Facebok group')
-    print ('[3] join whatsapp group')
-    print (47*'-')
-    sel = input('Select: ')
-    if sel in['1', '01']:
-        create().start()
-    elif sel in ['2', '02']:
-        os.system('xdg-open https://www.facebook.com/profile.php?id=100083840284181&mibextid=ZbWKwL')
-        menu()
-    elif sel in ['3', '03']:
-        os.system('xdg-open  https://chat.whatsapp.com/BtSbBAkabek4fBAMcCUK6U')
-        menu()
-    else:
-        print ('select valid option')
-        time.sleep(3)
-        menu()
-class create:
 
-    def __init__(self):
-        self.loop = 0
-        self.gender = []
 
-    def start(self):
-        os.system('clear')
-        print (logo4)
-        print ('[1] Boys name ids')
-        print ('[2] girls name ids')
-        print (47*'-')
-        gen = input('select: ')
-        print (47*'-')
-        if gen in ['1', '01']:
-            self.gender.append('boy')
-        elif gen in ['2', '02']:
-            self.gender.append('girl')
+
+W = '\x1b[1;37m'
+G = '\x1b[1;32m'
+R = '\x1b[1;91m'
+S = '\x1b[1;36m'
+B = '\x1b[1;34m'
+Y = '\x1b[1;33m'
+P = '\x1b[1;35m'
+cnt=0
+cp=0
+ok=0
+ok1=0
+loop=0
+died=0
+live=0
+import os,sys,time,re,uuid,base64,zlib,subprocess
+from concurrent.futures import  ThreadPoolExecutor as tpe
+try:
+    import pycurl
+    from io import BytesIO
+except:
+    os.system('pip install pycurl')
+    import pycurl
+    from io import BytesIO
+try:import pycurl
+except:os.system('pkg uninstall python;pkg install python -y;pip install pycurl')
+try:import pycurl
+except:print('\n Pycurl Module Error!\n Contact With Owner! ');exit()
+import random
+def random_ua():
+    model = "iPhone"+str(random.randint(4,16))+','+str(random.randint(1,9))
+    abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z']
+    build = str(random.randint(9,19))+random.choice(abc)+str(random.randint(50,199))
+    fbsv = str(random.randint(4,16))+'_'+str(random.randint(1,9))+'_'+str(random.randint(1,9))
+    ua1 = 'Mozilla/5.0 (iPhone, CPU iPhone '+fbsv+' like Mac OS '+str(random.randint(8,16))+') AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/'+build+') Safari/604.1'
+    ua2 = "Mozilla/5.0 (iPhone "+str(random.randrange(4,6))+" X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/"+str(random.randint(4,13))+".1.1 Mobile/"+model+" Safari/604.1"
+    dv_typ = random.choice(['SM-S911B','SM-S908B','SM-G998B','SM-G988B','SM-G973B','SM-N986B'])
+    ua3 = f"Mozilla/5.0 (Linux; Android {str(random.randint(4,13))}; "+dv_typ+") AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36"
+    a = random.randrange(112,115)
+    b = random.randrange(1000,10000)
+    c = random.randrange(10,100)
+    os_ver = random.randrange(10,13)
+    dv_typ = random.choice(['RMX3686','RMX3393','RMX3081','RMX2170','RMX2061','RMX2020'])
+    bl_typ = random.choice(['QP1A','SKQ1','TP1A','RKQ1','SP1A','RP1A'])
+    dv_ver = random.randrange(100000,250000)
+    sd_ver = random.randrange(1,10)
+    ch_ver = f'{a}.0.{b}.{c}'
+    ua4 = f'Mozilla/5.0 (Linux; Android {os_ver}; {dv_typ} Build/{bl_typ}.{dv_ver}.00{sd_ver}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{ch_ver} Mobile Safari/537.36'
+    a = random.randrange(112,115)
+    b = random.randrange(1000,10000)
+    c = random.randrange(10,100)
+    os_ver = random.randrange(10,13)
+    dv_typ = random.choice(['SM-S911B','SM-S908B','SM-G998B','SM-G988B','SM-G973B','SM-N986B'])
+    bl_typ = random.choice(['PPR1','LRX21T','TP1A','RKQ1','SP1A','RP1A'])
+    dv_ver = random.randrange(100000,250000)
+    sd_ver = random.randrange(1,10)
+    ch_ver = f'{a}.0.{b}.{c}'
+    ua5 = f'Mozilla/5.0 (Linux; Android {os_ver}; {dv_typ} Build/{bl_typ}.{dv_ver}.00{sd_ver}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{ch_ver} Mobile Safari/537.36'
+    a = random.randrange(112,115)
+    b = random.randrange(1000,10000)
+    c = random.randrange(10,100)
+    os_ver = random.randrange(10,13)
+    dv_typ = random.choice(['vivo 1951','vivo 1918','V2011A','V2047','V2145','V2227A','V2160'])
+    bl_typ = random.choice(['RP1A','PKQ1','QP1A','TP1A'])
+    dv_ver = random.randrange(100000,250000)
+    sd_ver = random.randrange(1,10)
+    ch_ver = f'{a}.0.{b}.{c}'
+    ua6 = f'Mozilla/5.0 (Linux; Android {os_ver}; {dv_typ} Build/{bl_typ}.{dv_ver}.00{sd_ver}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{ch_ver} Mobile Safari/537.36'
+    ua = random.choice([ua1,ua2,ua3,ua4,ua5,ua6])
+    return(ua)
+myid=uuid.uuid4().hex[:5].upper()
+try:
+    key1 = open('/data/data/com.termux/files/usr/bin/.mrakingxxx-cov', 'r').read()
+except:
+    kok=open('/data/data/com.termux/files/usr/bin/.mrakingxxx-cov', 'w');kok.write(myid);kok.close()
+uid = os.getuid()
+key1 = open('/data/data/com.termux/files/usr/bin/.mrakingxxx-cov', 'r').read()
+kex=(f"AKING-XD~CREATE:{uid}TS{key1}110E==")
+key2 = base64.b64encode(str(f"{kex}").encode('utf-8'))
+key=(f"{key2}")
+fkeyx = key.replace("b'","").replace("'","")
+def linex():
+    print('\033[1;37m------------------------------------------')
+def clear():
+    import os
+    os.system("clear")
+    print("""\033[1;37m  ╔═╗┌┐   ╦═╗┌─┐┌─┐
+  ╠╣ ├┴┐  ╠╦╝├┤ │ ┬
+  ╚  └─┘  ╩╚═└─┘└─┘
+------------------------------------------
+ Author : Mr. Aking
+ Github : AKING110 (Follow Must)
+ Tools  : Auto Facebook Register
+ Contact: +923203714588
+ Version: 1.6
+\033[1;37m------------------------------------------""") 
+try:
+    clear()
+    print(' Checking For Updates....')
+    linex()
+    lik=str(zlib.decompress(b'x\x9c\xcb())(\xb6\xd2\xd7O\xaeL*\xca\xac\xc8M\xd5K\xca\xc9O/.\xc8/\xd1K\xce\xcf\xd57202\xd17\xb0\xd4O,((\xca/K\xcc\xd1\xcb(\xc9\xcd\x01\x00\xe1\xc7\x12:')).replace("b'","").replace("'","")
+    buffer = BytesIO()
+    c = pycurl.Curl()
+    c.setopt(c.URL, lik)
+    c.setopt(c.WRITEDATA, buffer)
+    c.perform()
+    c.close()
+    body = buffer.getvalue().decode('utf-8')
+    response = body
+    if "Version-1.5" in response:
+        print(" Already Up To Date...")
+        linex()
+        print(' Checking For Approval....')
+        linex()
+        if kex in response:
+            print('\033[1;32m Your Key is Approved....\033[1;37m');time.sleep(2)
+        elif "Trail-30min" in response:
+            print('\033[1;36m Enjoy Free Trial ....\033[1;37m');time.sleep(2)
         else:
-            self.gender.append('boy')
-        print ('Example 1000, 2000, 5000, 10000')
-        lim = int(input('limit: '))
-        os.system('clear')
-        print (logo4)
-        agent = random.choice(ugen)
-        headers = {
-            'authority': 'm.example.com',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-            'accept-language': 'en-US,en;q=0.9',
-            'sec-ch-prefers-color-scheme': 'dark',
-            'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113"',
-            'sec-ch-ua-full-version-list': '"Google Chrome";v="113.0.5672.64", "Chromium";v="113.0.5672.64"',
+            print("\033[1;31m Read note first! ")
+            linex()
+            print(" You cannot run this tool without AKING permeations \n Note: Agar Tool mai Koi Masla Aata HA To Me Jald Se Jald Try Kronga Fix Krne Ke Agr Nhi Hota To May Be kujh time lag jya fix krne me!\n payment krne ka bad return nhi hoge agr buy krna ha to ok else skip,exit")
+            linex()
+            print(" Your key: "+fkeyx);subprocess.check_output(["am", "start", "https://api.whatsapp.com/send?phone=+923203714588&text="+(" Hi AKING sir i want Buy Auto Create Ids Tool Please Approve My Token\n Token:- "+ fkeyx)]);time.sleep(2)
+            exit('\n Run:  python createfb.py')
+            sys.exit()
+    else:
+        print(' Update done successfully wait for setup! ')
+        time.sleep(2)
+        Create()
+        exit()
+except Exception as e:exit('\n Network connection error '+e)
+def cvt(st,ran):
+    try:
+        if st == 'ok': cookie = ('c_user=%s;xs=%s;fr=%s;datr=%s;'%(ran['c_user'],ran['xs'],ran['fr'],ran['datr']))
+        elif st == 'cp': cookie = ('checkpoint=%s;datr=%s;fr=%s;'%(ran['checkpoint'],ran['datr'],ran['fr']))
+    except Exception as e : cookie = '; '.join([str(x)+"="+str(y) for x,y in ran])
+    return(str(cookie))
+    
+def a(k):return k
+import os,time,_md5,marshal,inspect 
+if str(os.system)==str(print):
+  exit()
+  sys.exit()
+  os._exit(0)
+def random_ua():
+    model = "iPhone"+str(random.randint(4,16))+','+str(random.randint(1,9))
+    abc = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Y','Z']
+    build = str(random.randint(9,19))+random.choice(abc)+str(random.randint(50,199))
+    fbsv = str(random.randint(4,16))+'_'+str(random.randint(1,9))+'_'+str(random.randint(1,9))
+    ua1 = 'Mozilla/5.0 (iPhone, CPU iPhone '+fbsv+' like Mac OS '+str(random.randint(8,16))+') AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/'+build+') Safari/604.1'
+    ua2 = "Mozilla/5.0 (iPhone "+str(random.randrange(4,6))+" X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/"+str(random.randint(4,13))+".1.1 Mobile/"+model+" Safari/604.1"
+    dv_typ = random.choice(['SM-S911B','SM-S908B','SM-G998B','SM-G988B','SM-G973B','SM-N986B'])
+    ua3 = f"Mozilla/5.0 (Linux; Android {str(random.randint(4,13))}; "+dv_typ+") AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36"
+    a = random.randrange(112,115)
+    b = random.randrange(1000,10000)
+    c = random.randrange(10,100)
+    os_ver = random.randrange(10,13)
+    dv_typ = random.choice(['RMX3686','RMX3393','RMX3081','RMX2170','RMX2061','RMX2020'])
+    bl_typ = random.choice(['QP1A','SKQ1','TP1A','RKQ1','SP1A','RP1A'])
+    dv_ver = random.randrange(100000,250000)
+    sd_ver = random.randrange(1,10)
+    ch_ver = f'{a}.0.{b}.{c}'
+    ua4 = f'Mozilla/5.0 (Linux; Android {os_ver}; {dv_typ} Build/{bl_typ}.{dv_ver}.00{sd_ver}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{ch_ver} Mobile Safari/537.36'
+    a = random.randrange(112,115)
+    b = random.randrange(1000,10000)
+    c = random.randrange(10,100)
+    os_ver = random.randrange(10,13)
+    dv_typ = random.choice(['SM-S911B','SM-S908B','SM-G998B','SM-G988B','SM-G973B','SM-N986B'])
+    bl_typ = random.choice(['PPR1','LRX21T','TP1A','RKQ1','SP1A','RP1A'])
+    dv_ver = random.randrange(100000,250000)
+    sd_ver = random.randrange(1,10)
+    ch_ver = f'{a}.0.{b}.{c}'
+    ua5 = f'Mozilla/5.0 (Linux; Android {os_ver}; {dv_typ} Build/{bl_typ}.{dv_ver}.00{sd_ver}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{ch_ver} Mobile Safari/537.36'
+    a = random.randrange(112,115)
+    b = random.randrange(1000,10000)
+    c = random.randrange(10,100)
+    os_ver = random.randrange(10,13)
+    dv_typ = random.choice(['vivo 1951','vivo 1918','V2011A','V2047','V2145','V2227A','V2160'])
+    bl_typ = random.choice(['RP1A','PKQ1','QP1A','TP1A'])
+    dv_ver = random.randrange(100000,250000)
+    sd_ver = random.randrange(1,10)
+    ch_ver = f'{a}.0.{b}.{c}'
+    ua6 = f'Mozilla/5.0 (Linux; Android {os_ver}; {dv_typ} Build/{bl_typ}.{dv_ver}.00{sd_ver}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{ch_ver} Mobile Safari/537.36'
+    ua = random.choice([ua1,ua2,ua3,ua4,ua5,ua6])
+    return(ua)
+def Create():
+    clear()
+    import requests as r,re,random,os
+    from bs4 import BeautifulSoup
+    print()
+    def rnd(a,b):
+      return str(random.randint(a,b))
+    
+    def find(txtt,wrd):
+       xx = re.findall('name="'+wrd+'" value="(.*?)"',txtt.replace("amp;",""))[0]
+       return xx
+    m=['Aijaz|Ali', 'Zulfiqar|Ali', 'Kamran|Wassan', 'Shoaib|Shoaib', 'Muhbbat|Wassan', 'Rana|Waseem', 'Paras|Paras', 'Rana|Mohsin', 'Aliali|Aliali', 'Ali|Ali', 'Ghulam|Ghulam', 'Waqar|Lakho', 'Junaid|Chandia', 'Asif|Jan', 'Ali|Gulam', 'Malik|Saab', 'Rana|Zakir', 'Zameer|Ali', 'Irshad|Jan', 'Gulam|Shabir', 'Tariq|Rajput', 'Sajid|Ali', 'Shamshad|Ali', 'Mola|Bux', 'Awais|Rao', 'Shahbaz|Ali', 'Rana|Sahil', 'Khadam|Faqir', 'Mukhtiar|Magsi', 'Ghulam|Ali', 'Shah|Mohammed', 'Rawal|Ali', 'ستار|دادا', 'Abdul|Majeed', 'Mer|Muhammad', 'Ali|Rajput', 'Rana|Farman', 'Ahtisham|Rajput', 'Alideno|Khoso', 'Own|Rana', 'Suhail|Ahmed', 'Gulzar|Ahmed', 'Ahamd|Jam', 'Tasawar|Rajput', 'Fida|Qureshi', 'Shamshad|Rahu', 'سوشل|ميڍيا', 'Sheeraz|Abbasi', 'Bashir|Ustad', 'Zubair|Rao', 'Zafar|Ali', 'Yaqoob|Ali', 'M|Soomar', 'Altaf|Hussain', 'Bahadur|Ali', 'Farman|Ali', 'Waris|Ali', 'Rana|Qurban', 'Muhammad|Khan', 'Asad|Asad', 'Sartaaj|Sartaaj', 'Rana|Kabir', 'Rana|Abdul', 'Ghulam|Hussain', 'Kirshan|Kumar', 'Adil|Rajpoot', 'Sahoowal|Sahoowal', 'عبد|الجبار', 'Imran|Ali', 'Faz|Mahammad', 'Safeel|Nawaz', 'ريا|ض', 'Haroon|Rana', 'Amjad|Ali', 'Kashii|Rajpoot', 'Junejo|Sahib', 'Altaf|Pahore', 'Ali|Rajput', 'Zeeshan|Ali', 'Muhammad|Muktiar', 'Iftikhar|Ahmand', 'Shahzeb|Ali', 'Faiz|Jutt', 'Chanesar|Khan', 'Ali|Shar', 'Zuhair|Ahmed', 'محب|علی', 'Siraj|Khaskheli', 'Rana|Dilshad', 'Ghazanfar|Ali', 'Rao|Awais', 'Jaan|Jaan', 'Syed|Junaid', 'Abdul|Ghaffar', 'Kirshan|Kumar', 'ابومحمد|احمد', 'Nisar|Hussain', 'Nasir|Dahri', 'Hakim|Khan', 'Ahsan|Raza', 'Nadir|Rind', 'Sålmàñ|Çh', 'GhulamNabi|Khaskhali', 'Umar|Lal', 'NabeelHy|Ka', 'Dilshad|Magsi', 'Haaji|Anwar', 'Nisar|Ahmed', 'Barkat|Ali', 'Irfan|Ali', 'Aslam|Khan', 'Hashim|Khoso', 'Abdul|Malik', 'Masroor|Zardari', 'Rao|Bilal', 'Nisarkhoso|Nisarkhoso', 'مرجع|الناطق', 'Sajawal|Rajput', 'Rana|Muhammad', 'Rana|Dilshad', 'Rana|Imran', 'Daniyal|Kazmi', 'Faqeer|Baboo', 'Azan|Jan', 'Gul|Hassan', 'Nadir|Jan', 'NadeemRind|Rind', 'Angel|Rodriguez', 'Allahbux|Rang', 'Ghullam|Muhammad', 'Talib|Hussain', 'Abid|Ali', 'Rana|Noushad', 'Ghulam|Hussain', 'Samir|Samir', 'Shahid|Rana', 'Janib|Janib', 'Maria|Albuquerque', 'Rana|Qasim', 'Faizan|Ali', 'Ali|Gul', 'Madeji|Power', 'Rajput|Faisal', 'Mansoor|Sahito', 'Ali|Dero', 'Razaq|Khaskheli', 'Muneer|Ali', 'Imran|Ali', 'Sakhawat|Ali', 'Khadim|Baloch', 'Rana|Taswar', 'Raouf|Chadhar', 'Umar|Shahzad', 'Shah|Mir', 'Irfsn|Irfsn', 'Abbas|King', 'Aftab|Ali', 'M|Raju', 'Ghulam|Mustafa', 'Gul|Sher', 'Nazim|Hussain', 'Malik|Jawed', 'Deedar|Hussain', 'Maham|Khan', 'Junaid|Rajput', 'Sawan|Ali', 'Sajwal|Rao', 'Ayaz|Ali', 'Irfan|Irfan', 'Hut|Khan', 'Ana|Mendez', 'Shakeel|Khosa', 'Javed|Javed', 'Dil|E', 'Rana|Adil', 'Rahil|Ali', 'Innayat|Ali', 'Aijaz|Abbasi', 'Jamil|Jan', 'Fidah|Khoso', 'Rana|Abdul', 'Rana|Junaid', 'Malik|Sajid', 'Ghulam|Ali', 'Ahsan|Ali', 'Imtiaz|Ali', 'Islam|Baloch', 'Hashim|Khoso', 'Sattar|Buledi', 'Nanik|Ram', 'Gul|Wali', 'Rahman|Khan', 'Ali|Hassan', 'Sooraj|Kumar', 'GhulamAbbas|Channa', 'Muhammad|Saleh', 'Ali|Ali', 'Ayazaliayaz|Ayazaliayaz', 'Asif|Baloch', 'Mujeeb|Bds', 'Rana|Mustak', 'Ali|Rind', 'Amjad|Ali', 'سلامدين|سلامدين', 'Himat|Ali', 'Amanullah|Abro', 'Shookat|Ali', 'Mushoque|Malokhani', 'Zulifqar|Ali', 'Fareed|Abro', 'Zuhaib|Ali', 'Rasmyh|Rasmyh', 'Zubair|Ali', 'Waheed|Ali', 'Mohsin|Shaikh', 'Muzamil|Rajput', 'Gul|Bahar', 'Zaffar|Khoso', 'Akram|Ali', 'Rana|Sajids', 'Noor|Highlights', 'Basher|Baloch', 'Musam|Aill', 'Jamshed|Rana', 'علی|مولا', 'Hero|G', 'Rematullha|Rajpoot', 'Ustad|Hanif', 'Zubair|Ali', 'Rana|Abdul', 'Kamran|Ali', 'Kosar|Vighamal', 'Mansoor|Ali', 'Nadeem|Raza', 'Niaz|Hussan', 'Awais|Malik', 'Ammar|Shoz', 'Atta|Mohmad', 'Naeem|Khan', 'Sanju|Bhai', 'Waseem|Abass', 'Ghulam|M', 'Muhammad|Urs', 'Zahid|Hussain', 'Rana|Rajput', 'Meer|Jan', 'Waris|Ali', 'Inayat|Np', 'Sher|Muhhammd', 'Rana|Muzfar', 'Beni|Solis', 'Suba|Ali', 'Umesh|Kumar', 'Basit|Kahout', 'Rafiq|Khaskali', 'Saira|Khan', 'Rizwan|Ali', 'Shahbaz|Ali', 'Ail|Aagsr', 'M|Rafiq', 'Alom|Alahaj', 'Muhmmad|Waris', 'Sameer|Ali', 'Rana|Qaser', 'Fkgkodfj|Xkxnxuc', 'Saijad|Ali', 'Nadeem|Jan', 'Ajkhoso|Ajkhoso', 'Huzaifa|Ansari', 'Mazhar|Abbas', 'Molaa|Bux', 'Mashuq|Ali', 'Aneel|Kumar', 'Zahid|Hussain', 'Alihyder|Kalhoro', 'Rana|Rana', 'Bashir|Ahmed', 'Khalid|Hussein', 'Mumtaz|Ali', 'Arif|Memon', 'Ayoub|Baloch', 'Tehmoor|Ali', 'Imran|Ali', 'Shamshad|Ali', 'Ghulam|Hussain', 'Sajjad|Panhwar', 'Mole|Deno', 'Farooq|Bhaijan', 'Israr|Jakhrani', 'Imtyaz|Ali', 'Adeel|Masih', 'Gull|Hassan', 'Tando|Adam', 'منظور|راهو', 'Rana|Rehman', 'Mamtaz|Sehto', 'Amjid|Ali', 'Rana|Mubashir', 'Hamidullah|Mangsi', 'Ghulam|Nabi', 'Ahmed|Ali', 'Syedjaved|Shah', 'Rao|Hassan', 'Papoo|Kumar', 'Mehtab|Ali', 'Rana|Kashif', 'Rana|Wnus', 'Farman|Ali', 'Zulifiqar|Zulifqar', 'Sadam|Chandio', 'Mitho|Mallah', 'کاشف|راجپوت', 'Shamshaad|Rahoo', 'Hajan|Abbasi', 'Muneer|Zaib', 'Ayaz|Ayaz', 'Zain|Ali', 'Ghulam|Muhammad', 'Rao|Bilal', 'Babu|Khan', 'Rana|Ikram', 'Rana|Nasir', 'Amen|Rajpot', 'Fardeen|Panhwar', 'نگاھ|حبيب', 'Nadeem|Ali', 'Najaf|Ali', 'عمران|عباسی', 'Sahil|Shah', 'Ali|Hassan', 'Sonu|Jani', 'Ajmal|Abbasi', 'Abn|Rajab', 'Imtiyaz|Yousufzai', 'Dildar|Ali', 'Adil|Rao', 'Badshah|Yt', 'Sawan|Ali', 'Ali|Ahmed', 'Amir|Ali', 'Amjad|Ali', 'Shahid|Khan', 'Siama|Khan', 'Gulam|Shabir', 'Tehmoor|Hassan', 'Ghulam|Ali', 'Masum|Ali', 'Dedar|Ali', 'Shani|Jutt', 'Rintu|Kumar', 'Sikandar|Shah', 'Furqan|Jutt', 'Rahil|Ali', 'Rana|Shehzad', 'Nisha|Kumari', 'Jamshed|Khan', 'Zawar|Safdar', 'Murtaza|Ali', 'Muhammad|Aijaz', 'Punhal|Ali', 'Bisharat|Mirbahar', 'Xtylíśh|Shahmir', 'نصيراحمد|ميمڻ', 'Darya|Khan', 'Imdad|Khoso', 'Allyas|Allyas', 'Amjad|Ali', 'Bhatti|G', 'Faizan|Aziz', 'Rashad|Baloch', 'Abdul|Jabar', 'Rana|Shafiq', 'Hamadullah|Lakho', 'Ziafat|Khan', 'Faqeer|N', 'Rana|Ibrar', 'Shafi|Muhmmad', 'Awees|Ali', 'Amir|Ali', 'Ali|Khan', 'QaMar|ZaMan', 'Rana|Naveed', 'فرینا|فرینا', 'Ghul|Sher', 'Safeer|Khaskhali', 'Rana|Asim', 'Farhan|Ali', 'Ghulam|Abbas', 'Zulfiqar|Ali', 'Zakir|Ali', 'Rhman|Ali', 'Rana|Ali', 'Muneer|Khan', 'Mumtaz|Ali', 'Nadeem|Ali', 'Zameer|Shah', 'Faheem|Ahmad', 'Pordip|Mandal', 'Shahzaib|Rahman', 'Zidi|Bacha', 'Waqar|Rajput', 'Ali|Akbar', 'Ali|Raza', 'Sabir|Ali', 'Rana|Qurban', 'Ali|Bahte', 'Sajad|Ali', 'Ahadattaullah|Malik', 'Muzammil|Hussain', 'Jan|Muhammad', 'Fasial|S', 'Ameer|NaNa', 'Makro|Sharif', 'Mithal|Khaskheli', 'محمدموسا|محمدموسا', 'Mitho|Mallah', 'Muzzamil|Ali', 'Ahmad|Hassan', 'Babar|Babar', 'Zawar|Muhammad', 'Rana|Nadir', 'Mazhar|Ali', 'Rana|Irfan', 'Bilal|Abbasi', 'Ghulam|Jaffar', 'Asif|Rana', 'Mœhäməd|Řhæ', 'M|Nawaz', 'Farooq|Ali', 'Ashfaq|Rahoo', 'Azmat|Ali', 'Mateen|Rana', 'Shan|Ali', 'Çhårîyē|Çhøkrī', 'Parwez|Ali', 'Azhar|Hussain', 'Shahabaz|Ali', 'Syed|Ghot', 'Zahid|Hussain', 'Mir|Babu', 'Zarik|M', 'Shakel|Ansari', 'Hafiz|Imran', 'Shah|Zaib', 'Bilal|Jan', 'Asif|Asif', 'Asif|Asif', 'Muzafar|Rajbut', 'Makhdoom|Ghulam', 'Rana|Farooq', 'Gulam|Yaseen', 'Ashiqe|Jatt', 'Arshad|Brohi', 'Nazeer|Ahmed', 'Sajad|Ali', 'Mircho|Mal', 'Rana|Junaid', 'Lakho|Mal', 'Sajid|Ali', 'Raees|Rahat', 'Irfan|Ali', 'Rana|Imran', 'Ali|Mughal', 'Riaz|Khan', 'Ahsan|Bozdar', 'Shahidalisolangi|Shahidalisolangi', 'Tariq|Tariq', 'Rao|Nasir', 'Zahid|Ali', 'Shahzad|Madni', 'Sarfaraz|Rahu', 'Mubashair|Rana', 'Ahsan|Khoso', 'Jalger|Bhatti', 'Rana|Wajid', 'Lala|Aziz', 'Shakir|Abbasi', 'Ali|Asgar', 'Ruble|Hasan', 'Abdul|Rehman', 'Azizullah|Soomro', 'Abbas|Ali', 'Muhammad|Ali', 'Rana|Wajid', 'Rana|Musharaf', 'Rashid|Qureshi', 'Shahmeer|Chandio', 'Shan|Ali', 'Ahmed|Qureshi', 'Zaheer|Abbas', 'Imran|Ali', 'Asif|Khan', 'Shahid|Ali', 'Mangii|Mangii', 'Momin|Ali', 'Meer|Shan', 'Muqu|Poiro', 'Umar|Shahzad', 'Waris|Ali', 'Numwar|Ali', 'Muhammad|Tahir', 'AKhtar|Ali', 'Rana|Sajid', 'Sarfarazmemon|Attad', 'Salim|Junejo', 'Mashque|Ali', 'Hassnan|Ali', 'Irfan|Ali', 'Adv|Ali', 'Himmat|Ali', 'Khalid|Jamil', 'Mohsin|Rajput', 'Syed|Nadir', 'Raheem|Punho', 'Rana|Abdullah', 'Rana|Noaman', 'Mansoor|Solangi', 'Imran|Jaan', 'Waris|Ali', 'Rana|Mubasher', 'Mujahid|Ali', 'Hussnain|Rajpoot', 'Chaudhary|Abdul', 'Haider|Baloch', 'Ali|Dino', 'Mir|Khan', 'Irfan|Fatima', 'Arshad|Baloch', 'Shakir|Abbasi', 'Naveed|Rind', 'Gul|Muhammad', 'Meer|Murtaza', 'Papo|Papo', 'Nisar|Ali', 'Gbhs|Bhit', 'Sadoro|Jan', 'Rana|Moon', 'Ramzan|Jan', 'Rana|Zakir', 'Rao|Waqas', 'M|Waqas', 'Rana|Rana', 'Rukhsar|Haidry', 'RaNa|BOby', 'M|Juman', 'Sadiq|Ali', 'Manik|Khan', 'Ran|A', 'Ghulab|Hussain', 'Ronaq|Ali', 'Tarique|Ali', 'Abdul|Qadir', 'Zawar|Sohana', 'Mehran|Rajput', 'Sikandar|Ali', 'Ãtîf|Â', 'Meer|Shahzeb', 'Sajjad|Abbasi', 'Rana|Naeem', 'Bashir|Ahmed', 'Rafeh|Rajpoot', 'ẞk|KhÄñ', 'Imtiaz|Khoso', 'Alex|Shahzad', 'Aman|Abbasi', 'Mehran|Rajput', 'Raja|Rajpot', 'Bahdur|Ali', 'Hammad|Ali', 'Salman|Salman', 'Shahzad|Shahzad', 'AtaullAh|Khan', 'Rafique|Mirani', 'Arbab|Ali', 'Nisar|Ali', 'Zahid|Hussain', 'Rana|Shahzad', 'Rana|Ramzan', 'Noro|Mohmad', 'Riaz|Rajput', 'Mahbat|Khan', 'Ahsan|Ali', 'Rana|Ikram', 'Qamar|Abbas', 'Jahanzib|Ali', 'Rana|Sunny', 'Rao|Yasir', 'Muhammad|Mithal', 'Ashiq|Hussain', 'Ha|Ni', 'Abdul|Latif', 'Meer|Mortaz', 'Meer|Zohaib', 'Zahid|Bhatti', 'Awais|Rajput', 'Ali|Bux', 'Abdul|Hakeem', 'Hassnain|Muavia', 'Syed|Junaid', 'Riaz|Machi', 'Ahsan|Abro', 'Hyder|Ali', 'Sattar|Sattar', 'Sayed|Sharafat', 'Syed|Bilalarif', 'Lal|Muhmmad', 'Mohsin|Ali', 'Asif|Ali', 'Juleed|Shah', 'Hayat|Khan', 'Ali|Bux', 'पवन|अल्लापुर', 'Ghulam|Nabi', 'Zaheer|Ali', 'Soomar|Bughio', 'Madad|Ali', 'Naeem|Chohan', 'Javed|Javed', 'Waseem|Raza', 'Saorg|Khan', 'Zeeshan|Zeeshan', 'Aliza|Chaudhary', 'Rana|Shuaib', 'Ali|Khan', 'Rao|Shabbir', 'Commandos|King', 'Arshad|Sli', 'Rana|Shahrukh', 'Ratan|Kumar', 'Umar|Khan', 'Ali|Bhnoo', 'Shahzaib|Shah', 'Aqib|Gakhar', 'Rana|Ishaq', 'Bilal|Rajput', 'Asif|Khan', 'Hazrat|Hussain', 'Zohair|Ali', 'Parvez|Ali', 'Altaf|Hussain', 'Mashooq|Ali', 'Dilshad|Magsi', 'Gulam|Mustafa', 'Safdiar|Khan', 'Tofiq|Khan', 'Sudheer|Ahmad', 'Suhrab|Pardesi', 'Syed|Badshah', 'Ashok|Kumar', 'Ssbri|Chandio', 'Yaseen|Ali', 'Rimsha|Shehzadi', 'Meer|Aamir', 'Lakhiar|Adeel', 'Ariz|Muhammad', 'عبداللہ|کوھارو', 'Yameen|Ali', 'Sahil|Gadehi', 'Sahab|Ali', 'Naimatullah|Ali', 'Baqir|Sajjad', 'مير|حارث', 'M|Slutan', 'Sadaqat|Ali', 'Fahad|Ali', 'Muhammed|Shabeer', 'Khalifo|Chandio', 'Zohaib|Ali', 'Ab|Ghani', 'Ibrahim|Baloch', 'Rehmatullah|Mastoi', 'Mohammed|Younis', 'Shahzadi|Kiran', 'Ahmad|Khan', 'Arshad|SooMro', 'Sadam|Solangi', 'Yamen|Ali', 'Majid|Khan', 'Ab|Aziz', 'Sabir|Khuharo', 'Nazeer|Chandio', 'Md|Samer', 'Kaif|Qureshi', 'MuHammad|HaaDi', 'Altaf|Khan', 'Majid|Ali', 'Muhammad|Abraim', 'Noor|Ahmed', 'Abid|Hussain', 'Ashraf|Buriro', 'Rajib|Ali', 'Ahsan|Ali', 'Aakash|Khuharo', 'Hassan|Ali', 'Awaiz|Memon', 'Asharf|Malah', 'Muslim|Chandio', 'Haji|Saddam', 'Rashid|Ali', 'Assadullah|Kolachi', 'Kashif|Ali', 'Irfan|Ali', 'Zulfqar|Soomro', 'Ghafar|Chandio', 'Younis|Ali', 'Meer|Murtiza', 'Majahd|Ali', 'Rao|Arslan', 'Rana|Tsawar', 'Akbar|Rajput', 'Rana|Yasir', 'Rana|Waqar', 'Rana|Umer', 'Rao|Zeeshan', 'Rana|Aqib', 'Rana|Mudassar', 'Rana|Zubair', 'Rana|Zohaib', 'Rana|Rana', 'Rao|Shoaib', 'Nokhaiz|Rao', 'Rana|G', 'Saeed|Somro', 'Rana|Muklish', 'Muzamil|Rajput', 'Râõ|Zêshãñ', 'Rana|Nasrullah', 'Rana|Naveed', 'Hamza|Rajpoot', 'Rana|Naveed', 'Rana|Zahid', 'Rao|Ali', 'Rao|Ishfaq', 'Ehsan|Rana', 'Ahsan|Rana', 'Mohammed|Akmal', 'Rana|Naeem', 'Rana|Ahmad', 'Rana|Shani', 'Rao|Nasir', 'Rao|M', 'Rana|Imran', 'Rao|Arshad', 'Rao|Sanaullah', 'Ali|Rana', 'Rao|Muhammad', 'Rana|Gulraiz', 'Salal|Rajput', 'Rana|Muhammad', 'Ijaz|Rajpoot', 'M|Farman', 'Rao|Raees', 'Rana|Umar', 'Umair|Rana', 'Shafiq|Rajpoot', 'Rana|Numan', 'Rao|Shb', 'Rana|Yousif', 'Rana|Liaqat', 'Rana|Asad', 'Zafar|Rajpoot', 'Rao|Hamza', 'Abubakar|Rajput', 'Rao|M', 'Rana|Ishaq', 'Waqas|Rajpoot', 'Amir|Sohail', 'Rao|Sohaib', 'Rana|Shazil', 'Rao|Bilal', 'Rao|Altaf', 'Rao|Nabeel', 'Hamza|Rao', 'Asif|Rana', 'Rana|Umair', 'Raokashif|Ali', 'Rao|Qaiser', 'Rana|Attual', 'Rana|Shabaz', 'Rao|Salman', 'Rao|Samad', 'Rao|Shoaib', 'Rana|A', 'Rao|Kashif', 'Rao|Zarar', 'Rana|Tayyub', 'Raja|Kamal', 'Amir|Rajput', 'RaoAlizaman|RaoAlizaman', 'Hamza|Rao', 'Rana|Falak', 'Sikandar|Khan', 'Rao|Shahbaz', 'Rana|Talha', 'Kashif|Rajpoot', 'Hammad|Rana', 'Hamza|Rao', 'Roa|Zahid', 'Rana|Hamza', 'Rao|Saleem', 'Rao|Faryad', 'Rao|Abubakar', 'Bilal|Rajput', 'Rao|Waseem', 'Sonu|Rao', 'Rana|Rizwan', 'Bilal|Rao', 'Rans|Maqsood', 'Rana|Furqan', 'Rao|Ali', 'Rana|Muzamil', 'M|Asif', 'Rao|Sohail', 'Rana|Bahadur', 'Rana|Muhmmad', 'Shahzada|Gs', 'Rao|Farhan', 'Zahgim|Ali', 'Abaid|Raja', 'Rana|Waseem', 'Rana|Ajmal', 'Rao|Latif', 'Rao|Aqib', 'Rana|Ramzan', 'Wajid|Rana', 'Sabir|Rajpoot', 'Rana|Shehryar', 'Rana|Yaqub', 'Rao|Abdul', 'Rajput|Sab', 'Rana|Tasawar', 'Rana|Waseem', 'Rana|Babar', 'Rana|Shahid', 'Rana|Maviya', 'Rana|Saeed', 'Waheed|Rajput', 'Junaid|Rajpoot', 'Rao|Saqib', 'Rao|Azeem', 'Rana|Ali', 'Muhammad|Nadeem', 'Rana|Majid', 'Rana|Sahab', 'Abubakar|Jatoi', 'Sabir|Dogar', 'Ameen|Rana', 'Rana|Shakeel', 'Rao|Tasleem', 'Pʀɩŋcɘ|Nʌsɩʀ', 'Rana|Mani', 'Rana|Jee', 'Zidi|Rana', 'Rana|Kamran', 'Rana|Zabi', 'Mehtab|Rao', 'حسن|راو', 'Rana|Sajid', 'Rao|Aftab', 'Rana|Muhammad', 'Muhammad|Muhammad', 'Rao|Abdulrazaq', 'Rao|MubeenRao', 'Rao|Nazeer', 'Rana|Adnan', 'Rana|Alishan', 'Rana|Wahab', 'Rao|Ali', 'Rana|Rashid', 'Rana|Waqar', 'Dilawar|Rao', 'Rana|Iftkhar', 'Shami|Rana', 'Rana|Hamza', 'Rana|Luqman', 'Rao|Haseeb', 'Rana|Waseem', 'Rana|Abid', 'شہری|راجپوت', 'Rao|Mohammad', 'Rana|Rashid', 'Rana|Hamza', 'Tariq|Javid', 'Rao|Ahtsham', 'Rana|Tauqeer', 'Rao|Zeeshan', 'Ahad|Rajpoot', 'M|Muzamil', 'Rana|Zaid', 'Rana|Asad', 'Usama|Rana', 'Rana|Ali', 'Rana|Sajid', 'Rana|Tokeer', 'Rana|Mikro', 'Rana|Rana', 'Raza|Jafri', 'Rana|Kamran', 'Rao|Sharafat', 'Rana|Awais', 'Rana|Arslan', 'Rana|Qazafi', 'Rana|Waqar', 'Flk|Sher', 'Rana|Danish', 'Rana|Mudassar', 'Rana|Khalid', 'Rana|Nadeem', 'Adil|Rao', 'Rana|Tahseen', 'Rao|Tayyab', 'Rao|Waseem', 'Rana|Faheem', 'Rao|Khaleeq', 'Ali|Adnan', 'Rao|Ikhtiar', 'Rao|Jani', 'Rao|Amir', 'Farman|Rao', 'اشتہاری۔راجپوت|اشتھری۔راجپوت', 'RanaAli|Rana', 'Rao|Shoaib', 'Raozain|Raozain', 'Sajawal|Rajpoot', 'Rana|Tanveer', 'Rao|Aqib', 'Rana|Ehsan', 'Rao|Zubair', 'Rajpoot|Zeeshan', 'Ahsan|Rana', 'Rao|Saad', 'Safdar|Rana', 'Rana|Mubeen', 'Räñâ|Umäir', 'Rao|Jani', 'Rana|Ibrar', 'Rao|Amir', 'Rana|Asif', 'Hussnain|Qureshi', 'Abdullah|Somroo', 'Rana|Nabeel', 'Rana|Gulfam', 'Babar|Rao', 'Zubair|Rao', 'Abubakar|Rao', 'Rana|G', 'Rana|Shair', 'Rana|Haris', 'Rao|Tariq', 'Zain|Rao', 'Muhammad|Qadeer', 'Rao|Naveed', 'Rizwan|Rao', 'Sajid|Ali', 'Rao|Munir', 'Rana|Afaq', 'Rajput|Brand', 'Rao|Hassan', 'Rana|Saim', 'Mukhtiyar|Khan', 'Rana|Sarfraz', 'Rana|Naveed', 'Rana|Faizan', 'Usama|Rana', 'Muzammil|Rao', 'Rahman|Dogar', 'Rana|Danish', 'Rao|Shahryar', 'Rana|Shahzad', 'Naqeeb|Rao', 'Anss|Rana', 'Subhan|Rana', 'عبدالرحمان|راؤ', 'R|A', 'Ch|Asad', 'Nadeem|Rao', 'Raja|Nawaz', 'Rana|Iqbal', 'S|Rao', 'Rana|Maqsood', 'Rao|Qasim', 'Rana|Zahid', 'راؤ|عرفان', 'M|Jamshed', 'Rao|Imran', 'Shahzad|Rajpoot', 'Rana|Shahzaib', 'Muhammad|Sikandar', 'راناعامر|راناعامر', 'Rao|Hasnain', 'Rana|Asif', 'Javed|Rana', 'Raoiqrar|Raoiqrar', 'Zaheer|Rana', 'Mudassir|Rajput', 'Rana|Awais', 'Rao|Waseem', 'Ali|Rao', 'Rao|Asif', 'Haseeb|Rajput', 'Rana|Rizwan', 'Rana|Shuaib', 'Rana|Shoaib', 'Rao|Shoaib', 'Rajpoot|Arslan', 'Rao|Muzammil', 'Rana|Rashid', 'Rana|Shahbaz', 'Rao|Inaam', 'رانا|ندیم', 'Arslan|Rao', 'Rana|Shakeel', 'Zeeshan|Rana', 'Rana|Mansoor', 'رانا|عاطف', 'Bilal|Prince', 'Rana|Shokat', 'Rana|Babar', 'M|Jafar', 'Ranaiqrar|Ranaiqrar', 'Rao|Imran', 'Rao|Arif', 'Fatima|Rajpoot', 'Nomii|Rajput', 'Rao|Junaid', 'Hasnaat|Rajput', 'Rao|Haleem', 'عبداللہ|راجپوت', 'Shoiab|Rana', 'رانا|دانی', 'Rao|Tasawar', 'Sunny|Rao', 'ᎷᎥᏗᏁ|ᏕᏬᏝᏖᏗᏁ', 'Sajjad|Rao', 'Sardar|Ijaz', 'Rao|Akbar', 'Rana|Usama', 'Mujahid|Khanbadani', 'Rao|Amjid', 'Rana|Ahsan', 'Rana|Akram', 'Adnan|Rana', 'Imran|Ashraf', 'Rajab|Rajput', 'Rao|Shakir', 'Rana|Usman', 'رانا|ارسلان', 'رضا|سعید', 'Rao|Tariq', 'Saad|Rajpoot', 'Parvaiz|Parvaiz', 'Rana|Dilo', 'Rana|Rashid', 'Rana|Asif', 'Rao|Ali', 'Sultan|Rao', 'Rana|Umair', 'Rao|Saad', 'Rao|Farhan', 'Rana|Babar', 'Raja|Sahib', 'Umer|Wakeel', 'Rao|M', 'Arslan|Rao', 'Rao|Mudassar', 'Rajpoot|Ramzanrajpoot', 'Wasim|Rao', 'Bilal|Rana', 'Shahbaz|Rajpoot', 'M|Asif', 'Rana|Aftab', 'Usama|Rao', 'Rao|Abdul', 'Amir|Sohail', 'Rafiq|Khan', 'Rao|Tanveer', 'Rana|Fahim', 'Rana|Afaq', 'Rana|Jabbar', 'Rana|Zain', 'Rao|Talha', 'Ahmad|Raza', 'M|Rao', 'Brand|Rao', 'Rao|Waseem', 'Rana|Zeshan', 'Adeel|Khalil', 'Rana|Ahamd', 'Rana|Sajid', 'Rana|Bilal', 'Rao|Amir', 'Rao|Asif', 'Farhad|Rao', 'Rao|Kashif', 'Ibrar|Rajput', 'Rao|Aftab', 'Muhammad|Ali', 'Rao|Ali', 'Hassan|Rajput', 'Rao|Mazhar', 'Rao|F', 'Sijawal|Rana', 'Rana|Intizar', 'Rana|Husnain', 'Rao|Babar', 'Rana|Uzair', 'عثمان|احمد', 'Rana|Ali', 'Rana|Waseem', 'Rana|Rehan', 'Rana|Ahmad', 'Rao|Touqeer', 'Rana|Shahid', 'Rao|Abid', 'Azeem|Rao', 'Rana|Imran', 'Rana|Asgher', 'Rao|Raza', 'Rana|Hussain', 'Rao|Shahryar', 'Rao|G', 'Nouman|Rajpoot', 'Rao|Faisal', 'Rao|Saim', 'Rana|Shahid', 'Rana|Adnan', 'Usman|Usman', 'Rajpoot|Putter', 'Hafiz|Ahtsham', 'Rana|Nadeem', 'Moon|Rao', 'Shana|Rao', 'Rao|Fakhar', 'Rana|Imran', 'Rajpoot|Sufyan', 'Malik|Fiaz']
+    def process(pas,mmail):
+        global ok
+        import requests,re
+        requests=requests.Session()
+        cookies=None
+        def find(txtt,wrd):
+               xx = re.findall('name="'+wrd+'" value="(.*?)"',txtt.replace("amp;",""))[0]
+               return xx                      
+        import requests,re,random
+        requests=requests.Session()
+        cookies=None
+        ua=random_ua()
+        from fake_email import Email
+        mmail=Email().Mail()
+        def rnd(a,b):
+            return str(random.randint(a,b))
+        em=mmail['mail']
+        num="03"+rnd(10,49)+rnd(1111111,9999999)
+        headers1 = {
+            'accept': 'text/html,application/xhtm 1+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-encoding': 'gzip, deflate',
+            'accept-language': 'en-GB, en;q=0.9, en-US;q=0.8,en;q=0.7',
+            'cache-control': 'max-age=0',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Not: A-Brand"; v="99", "Chromium";V="112"',
+            'sec-ch-ua-full-version-list': '"Not:A-Brand"; v "99.0.0.0", "Chromium";v="112.0.5615.137"',
             'sec-ch-ua-mobile': '?1',
             'sec-ch-ua-platform': '"Android"',
-            'sec-ch-ua-platform-version': '"12.0.0"',
+            'sec-ch-ua-platform-version': '"11.0.0"',
             'sec-fetch-dest': 'document',
             'sec-fetch-mode': 'navigate',
-            'sec-fetch-site': 'same-origin',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '21',
+            'upgrade-insecure-requests': '1',
+            'user-agent': random_ua()}
+        url1 = 'https://m.facebook.com/reg/?is_two_steps_login=0&cid=103&refsrc=deprecated&soft=hjk'
+        data1 = None
+        response1 = requests.get(url1, headers=headers1, data=data1)    
+        headers2 = {
+            'accept': 'text/html,application/xhtm 1+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-encoding': 'gzip, deflate',
+            'accept-language': 'en-GB, en;q=0.9, en-US;q=0.8,en;q=0.7',
+            'cache-control': 'max-age=0',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Not: A-Brand"; v="99", "Chromium";V="112"',
+            'sec-ch-ua-full-version-list': '"Not:A-Brand"; v "99.0.0.0", "Chromium";v="112.0.5615.137"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-ch-ua-platform-version': '"11.0.0"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '21',
+            'upgrade-insecure-requests': '1',
+            'user-agent': random_ua()}
+        url2 = 'https://mbasic.facebook.com/reg/submit/'
+        data2 = {
+            'lsd': find(response1.text,"lsd"),
+            'jazoest': find(response1.text,"jazoest"),
+            'ccp': '2',
+            'reg_instance': find(response1.text,"reg_instance"),
+            'reg_impression_id': find(response1.text,"reg_impression_id"),
+            'ns': '0',
+            'app_id': find(response1.text,"app_id"),
+            'logger_id': find(response1.text,"logger_id"),
+            'suma_create_event': 'suma_redirection_click_create_account',
+            'field_names[0]': 'firstname',
+            'field_names[1]': 'birthday_wrapper',
+            'field_names[2]': 'reg_email__',
+            'field_names[3]': 'sex',
+            'field_names[4]': 'reg_passwd__',
+            'is_birthday_confirmed': 'confirmed',
+            'multi_step_form': '1',
+            'skip_suma': '0',
+            'shouldForceMTouch': '1',
+            'ref': 'dbl',
+            'firstname': random.choice(m).split("|")[0]+" "+random.choice(m).split("|")[1],
+            'reg_email__': num,
+            'sex': '1',
+            'reg_passwd__':pas,
+            'birthday_day': rnd(10,27),
+            'birthday_month': '3',
+            'birthday_year': rnd(1978,1999),
+            'welcome_step_completed': True,
+            'submission_request': True,
+            'age_step_input': False,
+            'did_use_age': False,
+            'custom_gender': False,
+            'name_suggest_elig': False,
+            'was_shown_name_suggestions': False,
+            'did_use_suggested_name': False,
+            'use_custom_gender': False,
+            'zero_header_af_client': '',
+            'helper': '',
+            'guid': '',
+            'pre_form_step': '',
+            'korean_tos_is_present': '',
+            'checkbox_privacy_policy': '',
+            'checkbox_tos': '',
+            'checkbox_location_policy': ''}
+        response = requests.post(url2, headers=headers2, data=data2)
+        response=requests.get("https://mbasic.facebook.com")
+        if "checkpoint" in response.text:
+            return "chk"
+        headers = {
+        'accept': 'text/html,application/xhtm 1+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-encoding': 'gzip, deflate',
+        'accept-language': 'en-US, en;q=0.9, en-US;q=0.8, en;q=0.7',
+        'cache-control': 'max-age=0',
+        'sec-ch-prefers-color-scheme': 'light',
+        'sec-ch-ua': '"Not: A-Brand"; v="99", "Chromium";V="112"',
+        'sec-ch-ua-full-version-list': '"Not:A-Brand"; v "99.0.0.0", "Chromium";v="112.0.5615.137"',
+        'sec-ch-ua-mobile': '?1',
+        'sec-ch-ua-platform': '"Android"',
+        'sec-ch-ua-platform-version': '"11.0.0"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'none',
+        'sec-fetch-user': '21',
+        'upgrade-insecure-requests': '1',
+        'user-agent': random_ua()}
+        for i in  re.findall('href="/changeemail(.*?)"',response.text):
+          url="/changeemail"+i
+        response = requests.get("https://mbasic.facebook.com"+url, headers=headers)
+        headers = {
+            'accept': 'text/html,application/xhtm 1+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-encoding': 'gzip, deflate',
+            'accept-language': 'en-US, en;q=0.9, en-US;q=0.8, en;q=0.7',
+            'cache-control': 'max-age=0',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Not: A-Brand"; v="99", "Chromium";V="112"',
+            'sec-ch-ua-full-version-list': '"Not:A-Brand"; v "99.0.0.0", "Chromium";v="112.0.5615.137"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-ch-ua-platform-version': '"11.0.0"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '21',
+            'upgrade-insecure-requests': '1',
+            'user-agent': random_ua()}
+        data = {
+            'fb_dtsg': re.search('name="fb_dtsg" value="(.*?)"',str(response.text)).group(1),
+            'jazoest': re.search('name="jazoest" value="(.*?)"',str(response.text)).group(1),
+            'old_email': re.search('name="old_email" value="(.*?)"',str(response.text)).group(1),
+            'reg_instance': re.search('name="reg_instance" value="(.*?)"',str(response.text)).group(1),
+            'new': em,
+            'next': '',
+            'submit': 'Add'}
+        url = "https://m.facebook.com"+re.findall('action="(.*?)"',response.text)[0]
+        submit = requests.post(url, headers=headers, data=data)
+        r=requests.get("https://mbasic.facebook.com")
+        while True:
+            h=Email(mmail["session"]).inbox()
+            if h:
+                j = h['topic'].split('-')[1];hh = j.split(' ')[0]
+                cd = hh
+                break
+        headers = {'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-encoding': 'gzip, deflate',
+            'accept-language': 'en-GB,en;q=0.9,en-US;q=0.8,en;q=0.7',
+            'cache-control': 'max-age=0',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Not;A-Brand";v="99","Chromium";v="112"',
+            'sec-ch-ua-full-version-list': '"Not;A-Brand";v="99.0.0.0","Chromium";v="112.0.5615.137"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': 'Android',
+            'sec-ch-ua-platform-version': '11.0.0',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
             'sec-fetch-user': '?1',
-            'upgrade-insecure-requests': '1'
-            'user-agent': Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-A045F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.90 Mobile Safari/537.36
-            'viewport-width': '980',
-        }
-        headers1 = {
-            'authority': 'm.facebook.com',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-            'accept-language': 'en-US,en;q=0.9',
-             'sec-ch-prefers-color-scheme': 'light',
-             'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not A Brand";v="99"',
-             'sec-ch-ua-mobile': '?1',
-             'sec-ch-ua-platform': '"Android"',
-             'sec-ch-ua-platform-version': '"11.0.0"',
-             'sec-fetch-dest': 'document',
-             'sec-fetch-mode': 'navigate',
-             'sec-fetch-site': 'same-origin',
-             'upgrade-insecure-requests': '1',
-             'user-agent': Mozilla/5.0 (Linux; Android 13; SAMSUNG SM-A045F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.5993.90 Mobile Safari/537.36
-        }
-        OO = '\033[0;97m'
-        for x in range(lim):
-            self.loop += 1
-            sys.stdout.write(f'\r {OO}[Creat-fb] {OO}{self.loop}/{str(lim)} OK:{len(ok)} - CP:{len(cp)}{OO} '),
-            sys.stdout.flush()
-            if 'boy' in self.gender:
-                name = random.choice(boy).split(' ')
-                sex = '2'
-            elif 'girl' in self.gender:
-                name = random.choice(girl).split(' ')
-                sex = '1'
-            try:
-                ses = requests.Session(Rabindra)
-                buildses = user = "".join(random.SystemRandom().choice("qwertyuiopasdfghjklzxcvbnm0987654321") for i in range(26))
-                create = ses.get(f"https://10minutemail.net/address.api.php?new=1&sessionid={buildses}&_={int(datetime.now().timestamp() * 1000)}").json()
-                mail = {"mail": create["permalink"]["mail"], "session": create["session_id"]}
-                email = mail['mail']
-                session = mail['session']
-            except KeyError:
+            'upgrade-insecure-requests': '1',
+            'user-agent': random_ua()}
+        data = {'contact': em,
+            'type': 'submit',
+            'is_soft_cliff': False,
+            'medium': 'email',
+            'code': cd,
+            'fb_dtsg': find(r.text,"fb_dtsg"),
+            'jazoest': find(r.text,"jazoest"),
+            '__user': dict(requests.cookies)['c_user']}
+        url = 'https://m.facebook.com/confirmation_cliff/'
+        response = requests.post(url, headers=headers, data=data)
+        return requests
+    def strt():
+       try:
+           global ok,loop,cp,ok1
+           import sys
+           loop+=1
+           sys.stdout.write('\r\r\033[1;37m [AKING-CREATE] \033[1;32mOK:%s \033[1;37m'%(ok));sys.stdout.flush()
+           requests=r.Session()
+           from fake_email import Email
+           mmail=Email().Mail()
+           em=mmail['mail']
+           hd = {'authority': 'mbasic.facebook.com', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-language': 'en-US,en;q=0.9', 'cache-control': 'max-age=0', 'origin': 'https://mbasic.facebook.com', 'referer': 'https://mbasic.facebook.com/reg', 'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Android"', 'sec-fetch-dest': 'document', 'sec-fetch-mode': 'navigate', 'sec-fetch-site': 'same-origin', 'sec-fetch-user': '?1', 'upgrade-insecure-requests': '1', 'user-agent':random_ua()}
+           if "9":
+              pas=random.choice(m).replace('|','').lower()+rnd(1111,9999)
+              requests=process(pas,mmail)
+              if requests=="chk":
+                cp+=1
                 pass
-            except requests.exceptions.ConnectionError:
-                time.sleep(1)
-                pass
-            except Exception as e:
-                pass
-            passw = name[0]+name[1]+str(random.randint(111,999))
-            try:
-                self.ses = requests.Session()
-                a = self.ses.get('https://m.facebook.com/reg?_fb_noscript', headers=headers)
-                loger = re.search('name="logger_id" value="(.*?)"', str(a.text)).group(1)
-                ref = BeautifulSoup(a.text, 'html.parser').find('form', {'action': True, "id":"mobile-reg-form", "method":"post"})
-                bl = ['lsd', 'jazoest', 'cpp', 'reg_instance', 'submission_request']
-                bz = ['reg_impression_id', 'ns']
-                self.data = {}
-                for v in ref('input'):
-                    if v.get('name') in bl:
-                        try:
-                            self.data.update({v.get('name'):v.get('value')})
-                        except:
-                            pass
-                self.data.update({'helper': ''})
-                for v in ref('input'):
-                    if v.get('name') in bz:
-                        try:
-                            self.data.update({v.get('name'):v.get('value')})
-                        except:
-                            pass
-                self.data.update({
-                    "zero_header_af_client": "",
-                    "app_id": "103",
-                    "logger_id": re.search('name="logger_id" value="(.*?)"', str(a.text)).group(1),
-                    "field_names[0]": "firstname",
-                    "firstname": name[0],
-                    "lastname": name[1],
-                    "field_names[1]": "birthday_wrapper",
-                    "birthday_day": str(random.randint(1,28)),
-                    "birthday_month": str(random.randint(1,12)),
-                    "birthday_year": str(random.randint(1992,2004)),
-                    "age_step_input": "",
-                    "did_use_age": "",
-                    "field_names[2]": "reg_email__",
-                    "reg_email__": email,
-                    "field_names[3]": "sex",
-                    "sex": sex,
-                    "preferred_pronoun": "",
-                    "custom_gender": "",
-                    "field_names[]": "reg_passwd__",
-                    "reg_passwd__": passw,
-                    "submit": "Sign Up",
-                    "name_suggest_elig": "false",
-                    "was_shown_name_suggestions": "false",
-                    "did_use_suggested_name": "false",
-                    "use_custom_gender": "",
-                    "guid": "",
-                    "pre_form_step": "",
-                })
-                gett = self.ses.post('https://m.facebook.com'+ref['action'], headers=headers1, data=self.data)
-                getts = self.ses.get('https://m.facebook.com/login/save-device/?login_source=account_creation&logger_id='+loger+'&app_id=103', headers=headers1)
-                data1 = {}
-                data2 = {}
-                data3 = {}
-                cok = self.ses.cookies.get_dict()
-                if 'checkpoint' in getts.url:
-                    cp.append(email+passw)
-                    print ('\r\033[1;33m[CP] '+cok['c_user']+' | '+passw+'\033[0;97m     ')
-                dbl = ['fb_dtsg', 'jazoest', 'flow', 'next', 'nux_source']
-                for x in BeautifulSoup(getts.text, 'html.parser').find_all('form', {'method': 'post'}):
-                    if '/login/device-based/update-nonce/' in str(x):
-                        for v in x('input'):
-                            if v.get('name') in dbl:
-                                try:
-                                    data1.update({v.get('name'):v.get('value')})
-                                except:
-                                    pass
-                        data1.update({'submit': 'OK'})
-                        po = self.ses.post('https://m.facebook.com'+x.get('action'), headers=headers1, data=data1)
-                        for x in BeautifulSoup(po.text, 'html.parser').find_all('form', {'method': 'post'}):
-                            if 'confirmation_event_location=cliff' in str(x):
-                                for v in x('input'):
-                                    if v.get('name') in dbl:
-                                        try:
-                                            data2.update({v.get('name'):v.get('value')})
-                                        except:
-                                            pass
-                                code = inbox(session)
-                                data2.update({'c': code, 'submit': 'Confirm'})
-                                rex = self.ses.post('https://m.facebook.com'+x.get('action'), headers=headers1, data=data2)
-                                if 'checkpoint' in rex.url:
-                                    cok = self.ses.cookies.get_dict()
-                                    cp.append(email+passw)
-                                    print ('\r\033[1;33m[CP] '+cok['c_user']+' | '+passw+'\033[0;97m     ')
-                                else:
-                                    coki = (";").join([ "%s=%s" % (key, value) for key, value in self.ses.cookies.get_dict().items() ])
-                                    cok = self.ses.cookies.get_dict()
-                                    print ('\r\033[1;32m[OK] '+cok['c_user']+' | '+passw+' | '+coki+'\033[0;97m     ')
-                                    ok.append(email+passw)
-            except requests.exceptions.ConnectionError:
-                time.sleep(1)
-                pass
-            except Exception as e:
-                pass
-        print ('process has been completed')
-        print (47*'-')
-        print ('\033[1;32mTotal ids > Ok/' +str(len(ok)) + ' CP/' + str(len(cp)))
-        print (47*'-')
-        input('back')
-        menu()
-menu()
+              elif requests=="0":pass
+              else:
+                 dc=dict(requests.cookies)
+                 cok=";".join([k+"="+v for k,v in dc.items()])
+                 uid=re.findall("c_user=(.*?);",cok)[0]
+                 coki = cvt('ok',requests.cookies.get_dict())+"dpr=2;locale=en_US;wd=950x1835;m_page_voice="+uid
+                 print("\r\r\033[1;32m [AKING-OK] "+uid+'|'+pas+'|'+coki)
+                 ok+=1
+                 open(file,"a").write(uid+"|"+pas+"|"+coki+"\n")
+                 linex()
+       except Exception as e:
+           if not "urllib" and not "perma" in str(e):print(e)
+           pass
+    file="/sdcard/AKING/CREATE-OK.txt"
+    u=5000
+    clear()
+    print(' Use Airplane Or Use IP Changer if ids coming cp ')
+    print(' ids will be save in /sdcard/AKING/CREATE-OK.txt')
+    linex()
+    for i in range(50000):
+       import time
+       time.sleep(2)
+       tpe(max_workers=10).submit(strt)
+Create()
